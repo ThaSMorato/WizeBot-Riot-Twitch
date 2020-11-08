@@ -1,0 +1,85 @@
+.options-wrapper {
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 7px;
+    width: 100%;
+    margin: 7px 0;
+}
+
+.buttons {
+    margin: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 1.2em;
+    font-weight: 600;
+    border: 1px solid black;
+}
+
+.status {
+    padding: 10px;
+    border-radius: 10px;
+    border: 0;
+    background: gray;
+    color: white;
+    text-transform: capitalize;
+    margin: 20px;
+}
+
+.queue {
+    background: orange;
+}
+
+.col33 {
+    width: 33%;
+}
+
+.status:focus {
+    border: 0;
+}
+
+.attElo {
+    background: rgb(209, 206, 0);
+    color: white;
+    border-color: rgb(146, 144, 0);
+}
+
+.addSmurf{
+    background: rgb(90, 205, 253);
+    color: white;
+    border-color: rgb(53, 144, 184);
+}
+
+
+.delSmurf{
+    background: rgb(253, 90, 90);
+    color: white;
+    border-color: rgb(184, 53, 53);
+}
+
+.attNick{
+    background: rgb(63, 0, 209);
+    color: white;
+    border-color: rgb(76, 0, 161);
+}
+
+.attAcc {
+    background: rgb(18, 255, 77);
+    color: white;
+    border-color: rgb(9, 151, 56);
+}
+
+.followBtn {
+    background: rgb(64, 173, 50);
+    color: white;
+    border-color: rgb(40, 112, 30);
+}
+
+.unfollowBtn {
+    background: rgb(168, 89, 89);
+    color: white;
+    border-color: rgb(110, 58, 58);
+}
+
+.buttons:hover {
+    box-shadow:  inset 0px 0px 25px 1px rgba(0,0,0,0.75);
+}
