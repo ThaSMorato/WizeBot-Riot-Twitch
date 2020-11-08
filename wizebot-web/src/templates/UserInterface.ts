@@ -1,4 +1,3 @@
-import React from 'react';
 import PlayerInterface from './PlayerInterface';
 
 interface UserInterface{
