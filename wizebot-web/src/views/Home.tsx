@@ -2,6 +2,12 @@ import React, {useState} from 'react';
 import './styles/HomeViewStyle.css'
 import Account from '../components/UserComponent';
 import PlayerInterface from '../templates/PlayerInterface'
+import AccountOptions from '../components/AccountOptions';
+
+interface FollowInterface {
+    id: string,
+    status: string,
+}
 
 export default function Home(){
     const main: boolean = true;
@@ -65,7 +71,7 @@ export default function Home(){
     const smurfs:boolean = true;
     const smurf: Array<PlayerInterface> = [
         {
-            id: 'asduahsdusad',
+            id: 'asduahsdusad1',
             accountId: 'sadijasdijasd',
             puuid: 'asdasdosadasdo',
             name: 'twoAAindarkin',
@@ -75,7 +81,7 @@ export default function Home(){
             locale: 'BR',
         },
         {
-            id: 'asduahsdusad',
+            id: 'asduahsdusad2',
             accountId: 'sadijasdijasd',
             puuid: 'asdasdosadasdo',
             name: 'bladeXassassin',
@@ -85,6 +91,22 @@ export default function Home(){
             locale: 'BR',
         }
     ]
+
+    const [following, setFollowing] = useState<FollowInterface>({id: '0', status: 'queue'})
+
+    const handleFollowClick = (id: string) => {
+        setFollowing({
+            id: id,
+            status: 'queue',
+        });
+    }
+    const handleCancelClick = () => {
+        setFollowing({
+            id: '0',
+            status: 'queue'
+        });
+    }
+
 
     const [show, setShow] = useState(false)
 
@@ -97,13 +119,26 @@ export default function Home(){
                     smurf.map(
                         el => {
                             return(
-                                <Account role='main' player={el}></Account>
+                                
+                                <div className={`user-container smurf`} key={el.id}>
+                                <div className='column player-content'>
+                                    <Account player={el}></Account>
+                                </div>
+                                <div className="column flex-column">
+                                    <AccountOptions 
+                                            accountStatus={following?.id == el.id ? following.status : 'Not Following'}
+                                            setFollowing={handleFollowClick} 
+                                            cancelFollowing={handleCancelClick}
+                                            player={el} 
+                                            role='smurf' />
+                                </div>
+                            </div>
                             )
                         }
                     ) 
                 }
                 </div>
-                <button onClick={() => setShow(false)}>Hide Smurfs</button>
+                <button className='smurfBtn' onClick={() => setShow(false)}>Hide Smurfs</button>
             </>
         )
         }else {
@@ -111,7 +146,7 @@ export default function Home(){
                 <>
                     {
                     smurfs ?
-                    (<button onClick={() => setShow(true)}>Show Smurfs</button>):(<p>Cadastrar Smurfs</p>)
+                    (<button className='smurfBtn' onClick={() => setShow(true)}>Show Smurfs</button>):(<p>Cadastrar Smurfs</p>)
                     }
                 </>
                 )
@@ -123,7 +158,21 @@ export default function Home(){
             <div className='container-wrapper'>
                 <div className='accounts-wrapper'>
                     {   main ? (
-                                <Account role='main' player={player}></Account>
+                                
+                                    <div className={`user-container main`}>
+                                        <div className='column player-content'>
+                                            <Account player={player}></Account>
+                                        </div>
+                                        <div className="column flex-column">
+                                            <AccountOptions 
+                                            accountStatus={following?.id == player.id ? following.status : 'Not Following'}
+                                            setFollowing={handleFollowClick} 
+                                            cancelFollowing={handleCancelClick}
+                                            player={player} 
+                                            role='main' />
+                                        </div>
+                                    </div>
+                                
                             )
                         : (
                             <a href="#">Link para cadastrar a main</a>
@@ -133,9 +182,14 @@ export default function Home(){
                 </div>
                 <SmurfsComponent />
             </div>
-            <div className="content-wrapper">
-                
-            </div>
+           
         </div>
     )
 }
+
+/**
+ * TODO:
+ * dentro ->
+ * main: shadow-box green
+ * smurfs: shadow-box roxo =p
+ */
