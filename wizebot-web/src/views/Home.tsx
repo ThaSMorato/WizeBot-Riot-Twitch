@@ -3,6 +3,7 @@ import './styles/HomeViewStyle.css'
 import Account from '../components/UserComponent';
 import PlayerInterface from '../templates/PlayerInterface'
 import AccountOptions from '../components/AccountOptions';
+import NavbarComponent from '../components/NavbarComponent';
 
 interface FollowInterface {
     id: string,
@@ -155,6 +156,7 @@ export default function Home(){
 
     return (
         <div className='home-container'>
+            <NavbarComponent />
             <div className='container-wrapper'>
                 <div className='accounts-wrapper'>
                     {   main ? (

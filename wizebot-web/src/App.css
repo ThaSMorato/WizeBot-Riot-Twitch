@@ -15,6 +15,67 @@ body {
     background-attachment: fixed;
 }
 
+.navBar {
+  position: absolute;
+  top: 0;
+  right: 50px;
+  left: 50px;
+  height: 60px;
+  background: rgba(3, 70, 114, 0.568);
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.navBar  ul {
+  display: flex;
+  padding-left: 8px;
+}
+
+.navBar>ul > li {
+  display: flex;
+  margin: 0 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  height: 60px;
+  max-width: 160px;
+  align-items:center;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+.navBar .account-options-wrapper {
+  position: absolute;
+  right: 0;
+}
+
+.navBar .account-options-wrapper button{
+  padding: 4px;
+  font-size: 1.1rem;
+  border-radius: 15%;
+  font-weight: 600;
+}
+
+.logout {
+  background: rgba(0, 0, 0, 0);
+  color: rgb(212, 214, 91);
+  border: 0px;
+}
+
+.logout:hover{
+  background: rgb(205, 207, 85);
+  color: rgb(55, 54, 80);
+}
+
+.navBar>ul > li> a {
+  color: rgb(216, 255, 212) !important;
+}
+
+.navBar>ul > li> a:hover {
+  color: rgba(216, 255, 212, 0.527) !important;
+  text-decoration: none;
+  font-weight: 900;
+}
+
 
 .column{
   display: flex;
